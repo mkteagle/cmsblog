@@ -1,0 +1,62 @@
+<div class="users_page" layout="row">
+    <div class="users_list" layout="column">
+        <div>
+            <div class="user" layout="row" ng-click="comc.activeItem ='Un-approved'; commentFilter={approved: false}; comc.showItems=true" ng-class="{'active-selection': comc.activeItem == 'Un-approved'}"> <!--ng-class="{'active-selection': user.name == uc.activeItem}"-->
+                <div layout="column">
+                    <div class="faicons">
+                        <i class="fa fa-comment-o fa-4x"></i>
+                    </div>
+                </div>
+                <div class="name_role" layout="column">
+                    <div class="user_name">Un-approved</div>
+                </div>
+            </div>
+            <div class="user" layout="row" ng-click="comc.activeItem ='Approved'; commentFilter = {approved: true}; comc.showItems=true" ng-class="{'active-selection': comc.activeItem == 'Approved'}">
+                <div layout="column">
+                    <div class="faicons">
+                        <i class="fa fa-check-circle fa-4x"></i>
+                    </div>
+                </div>
+                <div class="name_role" layout="column">
+                    <div class="user_name">Approved</div>
+                </div>
+            </div>
+            <div layout="row" class="margin-top actions">
+                <div class="new_btn" ng-click="comc.showPrompt($event)">Add New Comment</div>
+            </div>
+        </div>
+    </div>
+    <div class="comment_info_pane" layout="column">
+            <div class="comment_space">
+                <div class="showNone item" ng-class="{'showAll': comc.showItems}" ng-repeat="comment in comc.comments | toArray | filter:commentFilter" layout="row">
+                    <div class="comment_info" layout="column">
+                        <div class="comment_content" ng-bind="comment.content"></div>
+                        <div layout="row">
+                            <div class="author">Commentor: <span ng-bind="comment.user.name"></span></div>
+                            <div class="blog_title">Blog: <span ng-bind="comc.blogs[comment.blog.uid].title"></span></div>
+                        </div>
+                    </div>
+                        <div class="comment_actions" layout="column">
+                            <div class="comments" layout="row">
+                                <div class="save_btn" ng-show="!comment.approved" ng-click="comc.approveDeny(true, comment.uid)">
+                                    <span class="approve-deny" ng-bind="comment.approved | approveDeny"></span>
+                                </div>
+                                <div class="save_btn" ng-show="comment.approved" ng-click="comc.approveDeny(false, comment.uid)">
+                                    <span class="approve-deny" ng-bind="comment.approved | approveDeny"></span>
+                                </div>
+                                <div class="save_btn margin-right">
+                                    Reply To
+                                </div>
+                                <div class="reset_btn" ng-click="comc.deleteComment(comment.uid)">
+                                    <i class="fa fa-trash"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,1 @@
+This is an empty directory for image uploads for my froala editor which needs this empty folder

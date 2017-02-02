@@ -1,0 +1,24 @@
+<div class="categories">
+    <div layout="row" class="actions">
+        <div class="new_btn" ng-click="cats.showPrompt($event)">Add New Category</div>
+    </div>
+    <div class="white_space">
+        <div class="item" ng-repeat="cat in cats.categories">
+            <div layout="row">
+                <div>
+                    <div class="cat-name" ng-bind="cat.name"></div>
+                    <div class="author">Added by <span ng-bind="cat.addedBy"></span></div>
+                </div>
+                <div layout="column" class="search_actions">
+                    <div layout="row">
+                        <div class="margin-right">Created </div>
+                        <time am-time-ago="cat.created"></time>
+                    </div>
+                    <div class="action_bar" layout="row">
+                        <div class="deleteBtn" ng-click="cats.deleteCategory(cat.uid)"><i class="fa fa-trash" aria-hidden="true"></i></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

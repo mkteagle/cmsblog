@@ -1,0 +1,88 @@
+<div>
+    <div class="topbar">
+        <div layout="row">
+            <div class="logo">
+                <div class="blog_cms">
+                    BlogCMS
+                </div>
+            </div>
+            <div class="header">
+                <div class="page_title" data-ui-view="header"></div>
+                <div class="classic_row" layout="row">
+                    <div class="push_right" layout="row">
+                        <div class="add_blog create_size">
+                            <a ng-click="c.createNew()">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                <span class="spacing">Create New</span>
+                            </a>
+                        </div>
+                        <md-menu>
+                            <md-button aria-label="Open Profile Dropdown" ng-click="c.openMenu($mdOpenMenu, $event)">
+                                <div layout="row">
+                                    <div class="add_blog">Hi {{ c.displayName | firstWord }}</div>
+                                    <div class="profile_pic"><img class="small" ng-src="{{c.profilePic}}"></div>
+                                </div>
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ui-sref="app.dashboard">
+                                        Home
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="c.logout()">
+                                        Logout
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div layout="row">
+            <md-sidenav-layout fullscreen layout="column" md-is-locked-open='true'>
+                <form ng-submit="c.search()">
+                    <div class="search_bar">
+                        <input type='text' placeholder="Search" ng-model="c.term"/>
+                        <input class="icon" type="submit" value="&#xf002;">
+                    </div>
+                </form>
+                <ul>
+                    <li ng-repeat="item in c.menu">
+                        <div class="sidenav-text" ng-class="{'active-selection': item.name == c.activeItem}"
+                             ng-click="c.activeItem=item.name; c.showChildren(item); c.activate(item.url)">
+                            <div class="encompassing-layout" layout="row">
+		                            <span class="icon">
+                                    <i class="{{item.icon}}"></i>
+                                </span>
+                                <span class="text" ng-bind="item.name"></span>
+                                <span class="over-arrow" ng-if="item.name != c.activeItem">
+                                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                </span>
+                                <span class="over-arrow" ng-if="item.name == c.activeItem && !item.subItems">
+                                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                </span>
+                                <span class="down-arrow" ng-if="item.name == c.activeItem && item.subItems">
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <ul>
+                            <li ng-repeat="subItem in item.subItems" ng-show="item.name == c.activeItem">
+                                <div class="no-outline"
+                                     ng-click="c.activeSubItem=subItem.name; c.activateSubItem(subItem.url)">
+									<span class="small-text"
+                                          ng-class="{'active-subItem': subItem.name == c.activeSubItem}"
+                                          ng-bind="subItem.name"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </md-sidenav-layout>
+            <md-content layout="column" class="siteContent" ui-view="parent-view"></md-content>
+        </div>
+    </div>
+</div>

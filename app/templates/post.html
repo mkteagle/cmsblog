@@ -1,0 +1,10 @@
+<h1>mkteagle.com</h1>
+<h2>{{pc.post.title}}</h2>
+Posted <time am-time-ago="pc.post.created"></time>
+<div class="postFeaturedImageCapsule">
+	<div class="imageSize"
+		 ng-style="{'background-image' : 'url(.' + pc.post.featuredImage + ')','background-size': 'cover','background-position': 'center center'}"></div>
+	<!--<div class="imageSize" ng-style="{'background-image':'url({{pc.post.featuredImage}})', 'background-position': 'center', 'background-size': 'cover'}" ></div>-->
+</div>
+<!--<img ng-src="{{pc.post.featuredImage}}">-->
+<div froala-view="pc.post.content"></div>

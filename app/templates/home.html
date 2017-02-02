@@ -1,0 +1,46 @@
+<!--<div class="centerstage">-->
+	<h1>mkteagle.com</h1>
+<div layout="row" layout-align="center center">
+    <span class="btn-smaller" ng-click="ac.createPost()"> + Blog </span>
+    <span class="btn-smaller" ng-click="ac.manageBlogs()">Blog Rollin'</span>
+    <span class="btn-smaller" ng-click="ac.registerPage()">Register New User</span>
+    <span class="btn-smaller" ng-click="ac.resetPassword()">Reset Password</span>
+    <span class="btn-smaller" ng-click="ac.logout()">Logout</span>
+</div>
+	<div class="topmargin">
+        <form name="form" ng-submit="ac.updateUser()">
+            <div><h4>Welcome {{ac.displayName}}</h4></div>
+            <div><h2>You made it logged in you sneeky sneeky</h2></div>
+            <md-input-container>
+                <div><label>Display Name: </label><input type="text" name="displayName" required="" ng-model="ac.displayName" ng-required="true" placeholder="Display Name" ng-minlength="5"></div>
+                <div ng-messages="form.displayName.$error" ng-show="form.displayName.$dirty">
+                    <div ng-message="required">This is required!</div>
+                    <div ng-message="minlength">That's too short!</div>
+                </div>
+            </md-input-container>
+            <md-input-container>
+                <div><label>Email: </label><input type="email" name="email" required="" ng-model="ac.email" ng-required="true" ng-minlength="5"></div>
+                <div ng-messages="form.email.$error" ng-show="form.email.$dirty">
+                    <div ng-message="required">This is required!</div>
+                    <div ng-message="minlength">That's too short!</div>
+                </div>
+            </md-input-container>
+            <div>
+                <div class="featureImage">
+                    <input type="file" ngf-select="" ng-model="ac.file" name="file" ngf-accept="'image/*'"
+                           ng-required="true" class="ng-pristine ng-invalid ng-invalid-required" accept="image/*">
+                    <span class="btn-smaller" ng-click="ac.updateProfilePic(ac.file)">upload</span>
+                </div>
+                <div ng-if="ac.profilePic" class="imageClass">
+                    <div class="fi-preview"
+                         ng-style="{'background-image' : 'url(.' + ac.profilePic + ')','background-size': 'cover','background-position': 'center center'}"></div>
+                </div>
+            </div>
+            <div class="form-footer">
+                <button type="submit" class="btn">Update User</button>
+            </div>
+
+        </form>
+
+	</div>
+<!--</div>-->

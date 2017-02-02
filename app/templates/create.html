@@ -1,0 +1,113 @@
+<div class="create_post">
+    <form name="form" class="form">
+        <div layout="row">
+            <div class="eighty_column">
+                <div layout="row">
+                    <input type="text" name="title" size="75" id="title" class="title"
+                           minlength="5"
+                           ng-model="cc.blogTitle" tabindex="0" placeholder="Type the title of the post here ..."/>
+                </div>
+                <div>
+                    <trix-editor angular-trix class="content" ng-model="cc.blogContent"></trix-editor>
+                </div>
+            </div>
+            <div class="twenty_column">
+                <div class="options">
+                    <div layout="row">
+                        <button class="publish_btn" ng-click="cc.saveBlog(true)">Publish</button>
+                        <div class="draft_link"><a class="underline_dash" ng-click="cc.saveBlog(false)">or Save as Draft</a></div>
+                    </div>
+                    <div class="post_scheduler">
+                        <div layout="row">
+                            Schedule
+                            <div class="datepicker">
+                                <md-datepicker class="number-one-date-picker" ng-model="cc.futureDate"
+                                               md-min-date="cc.minDate" md-placeholder="Enter date"></md-datepicker>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="delete_post">
+                        <a href="#">Delete Post</a>
+                    </div>
+                </div>
+                <div class="options top-margin">
+                    <div class="heading">Contests</div>
+                    <div layout="row">
+                        <div class="portfolio_btn">
+                            <label>
+                                <input type="checkbox" ng-model="cc.contest">
+                                Contest?
+                            </label><br/>
+                        </div>
+                    </div>
+                    <div ng-if="cc.contest">
+                        <div class="post_scheduler">
+                            <div layout="row">
+                                <div class="datepicker">
+                                    <md-datepicker class="number-one-date-picker" ng-model="cc.startDate"
+                                                   md-min-date="cc.minDate" md-placeholder="Start Date"></md-datepicker>
+                                </div>
+                                <div class="datepicker">
+                                    <md-datepicker class="number-one-date-picker" ng-model="cc.endDate" md-min-date="cc.minDate" md-placeholder="End Date"></md-datepicker>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-margin smaller-options" ng-class="{'resize': cc.featuredImg}">
+                    <div class="heading">Featured Image</div>
+                    <div class="featureImage smaller-margin" ng-if="!cc.featuredImg">
+                        <div class="file-input-wrapper">
+                            <button class="btn-file-input">Select Featured Image <i class="fa fa-chevron-down"
+                                                                                    aria-hidden="true"></i></button>
+                            <input type="file" ngf-select="" ng-model="cc.file" name="file" ngf-accept="'image/*'"
+                                   class="ng-pristine ng-invalid"
+                                   accept="image/*" ng-change="cc.uploadFeatured(cc.file)"/>
+                        </div>
+                    </div>
+                    <div class="fi-preview-enclosing">
+                        <div ng-if="cc.featuredImg" class="imageClass">
+                            <div class="fi-preview"
+                                 ng-style="{'background-image' : 'url(.' + cc.featuredImg + ')','background-size': 'cover','background-position': 'center center'}"></div>
+                        </div>
+                        <div layout="row" ng-if="cc.featuredImg">
+                            <div class="edit_image">
+                                <div class="file-input-wraps">
+                                    <button class="btn-file-input">Edit Image </button>
+                                    <input type="file" ngf-select="" ng-model="cc.file" name="file"
+                                           ngf-accept="'image/*'"
+                                           class="ng-pristine ng-invalid"
+                                           accept="image/*" ng-change="cc.editImage(cc.file)"/>
+                                </div>
+                            </div>
+                            <span class="pipe"> | </span>
+                            <span class="delete_image"><a ng-click="cc.deletePhoto()">Delete Image</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="smaller-options top-margin">
+                    <div class="heading">
+                        County
+                    </div>
+                    <select ng-model="cc.county" ng-options="x.name for x in cc.counties">
+                        <option value="" disabled selected>County</option>
+                    </select>
+                </div>
+                <div class="one-hundred top-margin ">
+                    <div class="heading">Categories</div>
+                    <md-chips ng-model="cc.categoryList" md-autocomplete-snap md-require-match>
+                        <md-autocomplete
+                                md-autofocus="true"
+                                md-no-cache="true"
+                                md-items="category in cc.cats"
+                                placeholder="Pick something...">
+                            <md-item-template>{{category}}</md-item-template>
+                        </md-autocomplete>
+                        <md-chip-template><span><em>{{$chip}}</em></span></md-chip-template>
+                    </md-chips>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

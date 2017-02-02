@@ -1,0 +1,100 @@
+<div class="users_page" layout="row">
+    <div class="users_list">
+        <div ng-repeat="user in uc.users">
+            <div class="user" layout="row" ng-click="uc.updateUserSelection(user.uid); uc.activeItem=user.name; uc.showItems=true" ng-class="{'active-selection': user.name == uc.activeItem}">
+                <div layout="column">
+                    <img class="user_avatar" ng-src="{{user.photoUrl}}">
+                </div>
+                <div class="name_role" layout="column">
+                    <div class="user_role" ng-bind="user.role"></div>
+                    <div class="user_name" ng-bind="user.name"></div>
+                </div>
+            </div>
+        </div>
+
+    <div class="meta">
+        <div class="add_btn" ng-click="uc.showPrompt($event)"><span>Add a New User</span></div>
+    </div>
+    </div>
+    <div layout="column" class="user_info_pane">
+        <div class="showNone user_list_info" ng-class="{'showAll': uc.showItems}">
+            <form>
+                <div layout="row">
+                    <div class="column_headers">
+                        <div class="column_header">Name:</div>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" ng-model="uc.user.name" placeholder="Please type here..."/>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div class="column_headers">
+                        <div class="column_header">Email:</div>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" ng-model="uc.user.email" placeholder="Please type here..."/>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div class="column_headers">
+                        <div class="column_header">Avatar:</div>
+                    </div>
+                    <div class="inputs">
+                        <div class="user_avatar_edit" layout="column">
+                            <img class="user_avatar" ng-if="uc.user.photoUrl" ng-src="{{uc.user.photoUrl}}"/>
+                            <div class="user_avatar_txt">Upload new picture</div>
+                            <div layout="row">
+                                <input type="file" ngf-select="" ng-model="uc.file" name="file" ngf-accept="'image/*'"
+                                       class="ng-pristine ng-invalid ng-invalid-required user_avatar_file_input" accept="image/*">
+                                <span class="user_avatar_btn" ng-click="uc.updateProfilePic(uc.file)">upload</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div class="column_headers">
+                        <div class="column_header">
+                            Role:
+                        </div>
+                    </div>
+                    <div class="inputs">
+                        <select ng-model="uc.user.role" ng-options="role for role in uc.roles"></select>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div class="column_headers">
+                        <div class="column_header">Bio:</div>
+                    </div>
+                    <div class="inputs">
+                    <textarea ng-model="uc.user.bio" placeholder="Please type here...">
+                    </textarea>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div class="column_headers">
+                        <div class="column_header">
+                            Facebook:
+                        </div>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" ng-model="uc.user.facebook" placeholder="Please type here..."/>
+                    </div>
+                </div>
+                <div layout="row">
+                    <div class="column_headers">
+                        <div class="column_header">
+                            Instagram:
+                        </div>
+                    </div>
+                    <div class="inputs">
+                        <input type="text" ng-model="uc.user.instagram" placeholder="Please type here..."/>
+                    </div>
+                </div>
+                <div layout="row" class="end">
+                        <div class="reset_btn" ng-click="uc.reset()">Reset</div>
+                        <div class="save_btn" ng-click="uc.save(uc.user)">Save</div>
+                </div>
+            </form>
+        </div>
+        </div>
+</div>

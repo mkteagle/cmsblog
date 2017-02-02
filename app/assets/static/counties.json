@@ -1,0 +1,120 @@
+{
+	"counties": {
+		"Beaver": {
+			"name": "Beaver",
+			"param": "beaver"
+		},
+		"Box Elder": {
+			"name": "Box Elder",
+			"param": "box-elder"
+		},
+		"Cache": {
+			"name": "Cache",
+			"param": "cache"
+		},
+		"Carbon": {
+			"name": "Carbon",
+			"param": "carbon"
+		},
+		"Daggett": {
+			"name": "Daggett",
+			"param": "daggett"
+		},
+		"Davis": {
+			"name": "Davis",
+			"param": "davis"
+		},
+		"Duchesne": {
+			"name": "Duchesne",
+			"param": "duchesne"
+		},
+		"Emery": {
+			"name": "Emery",
+			"param": "emery"
+		},
+		"Garfield": {
+			"name": "Garfield",
+			"param": "garfield"
+		},
+		"Grand": {
+			"name": "Grand",
+			"param": "grand"
+		},
+		"Iron": {
+			"name": "Iron",
+			"param": "iron"
+		},
+		"Juab": {
+			"name": "Juab",
+			"param": "juab"
+		},
+		"Kane": {
+			"name": "Kane",
+			"param": "kane"
+		},
+		"Millard": {
+			"name": "Millard",
+			"param": "millard"
+		},
+		"Morgan": {
+			"name": "Morgan",
+			"param": "morgan"
+		},
+		"Piute": {
+			"name": "Piute",
+			"param": "piute"
+		},
+		"Rich": {
+			"name": "Rich",
+			"param": "rich"
+		},
+		"Salt Lake": {
+			"name": "Salt Lake",
+			"param": "salt-lake"
+		},
+		"San Juan": {
+			"name": "San Juan",
+			"param": "san-juan"
+		},
+		"Sanpete": {
+			"name": "Sanpete",
+			"param": "sanpete"
+		},
+		"Sevier": {
+			"name": "Sevier",
+			"param": "sevier"
+		},
+		"Summit": {
+			"name": "Summit",
+			"param": "summit"
+		},
+		"Tooele": {
+			"name": "Tooele",
+			"param": "tooele"
+		},
+		"Uintah": {
+			"name": "Uintah",
+			"param": "unintah"
+		},
+		"Utah": {
+			"name": "Utah",
+			"param": "utah"
+		},
+		"Wasatch": {
+			"name": "Wasatch",
+			"param": "wasatch"
+		},
+		"Washington": {
+			"name": "Washington",
+			"param": "washington"
+		},
+		"Wayne": {
+			"name": "Wayne",
+			"param": "wayne"
+		},
+		"Weber": {
+			"name": "Weber",
+			"param": "weber"
+		}
+	}
+}

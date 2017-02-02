@@ -1,0 +1,25 @@
+<div class="fullbackground">
+    <div class="logo-home-cont">
+        <img class="logo-home" src="../assets/img/doing_utah_daily_white.png">
+    </div>
+    <div class="submessage-cont">
+        <div class="submessage">You're going to like this!!!</div>
+    </div>
+    <div ng-if="hc.truth" class="validation">
+        <div class="valid" ng-bind="hc.message">Nothing Here Yet</div>
+    </div>
+    <div class="textbox-cont">
+        <input type="email" placeholder="Email" ng-model="lc.email">
+        <button class="orange-button" ng-click="hc.post()">Notify Me</button>
+    </div>
+    <div class="social-row">
+        <a href="https://www.facebook.com/doingutahdaily/"><img class="social-link" src="../assets/img/facebook.png"></a>
+        <a href="https://www.instagram.com/doingutahdaily/"><img class="social-link" src="../assets/img/instagram.png"></a>
+        <a href="https://plus.google.com/u/1/105542389137361622427"><img class="social-link" src="../assets/img/googleplus.png"></a>
+    </div>
+</div>
+<!--<div class="footer-cont">-->
+    <!--<div class="footer">-->
+        <!--&copy; 2015 <script> new Date().getFullYear()>2015&&document.write("-"+new Date().getFullYear()); </script>, Doing Utah Daily.-->
+    <!--</div>-->
+<!--</div>-->

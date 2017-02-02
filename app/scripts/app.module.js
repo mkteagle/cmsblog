@@ -1,0 +1,45 @@
+(function(){
+	'use strict';
+	angular
+		.module('dud', [
+			'loginController',
+			'ui.router',
+			'ngPassword',
+			'ngMessages',
+			'ngFileUpload',
+			'ngStorage',
+			'dud.config',
+			'userController',
+			'registerController',
+			'blogController',
+			"createController",
+			"blogFilter",
+			"forgotController",
+			"postController",
+			"angularMoment",
+			"ngMaterial",
+			'ngAnimate',
+			'ngAria',
+			"md.data.table",
+			"angular.filter",
+			"editController",
+			"controller",
+            "multipleSelect",
+			"catController",
+			"acdController",
+			"auController",
+			"acController",
+			"commentController",
+			"listController",
+			"cmsService",
+			"dashboardController",
+			"searchController",
+			'homepageController',
+            'angularTrix'
+		])
+		.config(function($mdThemingProvider) {
+			$mdThemingProvider.theme('default')
+				.primaryPalette('blue-grey')
+				.accentPalette('blue-grey');
+		})
+})();

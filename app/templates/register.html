@@ -1,0 +1,28 @@
+<!--<div class="container">-->
+<h1>Create User Screen</h1>
+<h2>For Registering A New User</h2>
+<form class="form" autocomplete="off" novalidate="" ng-submit="rc.createUser()">
+    <div><label>Email: </label><input type="text" name="email" placeholder="Email" ng-model="rc.email" required></div>
+    <div>
+        <div ng-messages="form.email.$error" ng-if="form.$submitted || form.email.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+            <div ng-message="required" class="message slide-left">You did not enter an email</div>
+        </div>
+    <div><label>Password: </label><input type="password" name="newPassword" placeholder="Password" ng-model="rc.password" required></div>
+        <div class="clearfix">
+            <div ng-messages="form.newPassword.$error" ng-if="form.$submitted || form.newPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+                <div ng-message="required" class="message slide-left">You did not enter a password</div>
+            </div>
+    <div><label>Confirm Password: </label><input type="password" match-password="newPassword" placeholder="Confirm Password" ng-model="rc.confirmPassword" name="confirmPassword" required></div>
+            <div>
+                <div ng-messages="form.confirmPassword.$error" ng-if="form.$submitted || form.confirmPassword.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+                    <div ng-message="required" class="message slide-left">You did not enter a password</div>
+                    <div ng-message="passwordMatch" class="message slide-left">Your passwords did not match</div>
+                </div>
+    <div><label>Display Name: </label><input type="text" name="displayName" placeholder="Display Name" ng-model="rc.displayName" required></div>
+                <div>
+                    <div ng-messages="form.displayName.$error" ng-if="form.$submitted || form.displayName.$dirty" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+                        <div ng-message="required" class="message slide-left">You did not enter a Display Name</div>
+                    </div>
+    <div><input type="submit"></div>
+</form>
+<!--</div>-->

@@ -1,0 +1,24 @@
+<md-dialog ng-cloak>
+    <form>
+        <md-dialog-content>
+            <h2>Add User</h2>
+            <md-input-container>
+                <label>Email</label>
+                <input type="text" ng-model="auc.email"/>
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input type="password" ng-model="auc.password"/>
+            </md-input-container>
+            <md-input-container>
+                <label>Confirm Password</label>
+                <input type="password" ng-model="auc.confirm"/>
+            </md-input-container>
+            </md-input-container>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="auc.cancel()">Cancel</md-button>
+            <md-button ng-click="auc.addUser()">Add User</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

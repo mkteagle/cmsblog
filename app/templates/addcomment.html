@@ -1,0 +1,13 @@
+<md-dialog ng-cloak>
+    <form>
+        <md-dialog-content>
+            <h2>Add Comment</h2>
+                <label>Comment Content</label>
+                <textarea ng-model="acom.content" placeholder="Please type here..."></textarea>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="acom.cancel()">Cancel</md-button>
+            <md-button ng-click="acom.addComment()">Add Comment</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

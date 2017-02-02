@@ -1,0 +1,100 @@
+<div class="create_post">
+    <form name="form" class="form">
+        <div layout="row">
+            <div class="eighty_column">
+                <div layout="row">
+                    <input type="text" name="title" size="75" id="title" class="title"
+                           minlength="5"
+                           ng-model="ec.post.title" tabindex="0" placeholder="Type the title of the post here ..."/>
+                </div>
+                <div>
+                    <trix-editor angular-trix class="content" ng-model="ec.blogContent"></trix-editor>
+
+                </div>
+                <div layout="row"></div>
+            </div>
+            <div class="twenty_column">
+                <div class="options">
+                    <div layout="row">
+                        <button class="publish_btn" ng-click="ec.updateBlog(true)">Save</button>
+                        <div class="draft_link"><a class="underline_dash" ng-click="ec.saveBlog(false)">or Save as
+                            Draft</a></div>
+                    </div>
+                    <div class="post_scheduler">
+                        <div layout="row">
+                            Schedule
+                            <div class="datepicker">
+                                <md-datepicker class="number-one-date-picker" ng-model="ec.post.futureDate"
+                                               md-min-date="ec.minDate" md-placeholder="Enter date"></md-datepicker>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="delete_post" ng-click="ec.deletePost()">
+                        Delete Post
+                    </div>
+                </div>
+                <div class="top-margin smaller-options" ng-class="{'resize': ec.post.featuredImage}">
+                    <div class="heading">Featured Image</div>
+                    <div class="featureImage smaller-margin" ng-if="!ec.post.featuredImage">
+                        <div class="file-input-wrapper">
+                            <button class="btn-file-input">Select Featured Image <i class="fa fa-chevron-down"
+                                                                                    aria-hidden="true"></i></button>
+                            <input type="file" ngf-select="" ng-model="ec.file" name="file" ngf-accept="'image/*'"
+                                   class="ng-pristine ng-invalid"
+                                   accept="image/*" ng-change="ec.uploadFeatured(ec.file)"/>
+                        </div>
+                    </div>
+                    <div class="fi-preview-enclosing">
+                        <div ng-if="ec.post.featuredImage" class="imageClass">
+                            <div class="fi-preview"
+                                 ng-style="{'background-image' : 'url(.' + ec.post.featuredImage + ')','background-size': 'cover','background-position': 'center center'}"></div>
+                        </div>
+                        <div layout="row" ng-if="ec.post.featuredImage">
+                            <div class="edit_image">
+                                <div class="file-input-wraps">
+                                    <button class="btn-file-input">Edit Image</button>
+                                    <input type="file" ngf-select="" ng-model="ec.file" name="file"
+                                           ngf-accept="'image/*'"
+                                           class="ng-pristine ng-invalid"
+                                           accept="image/*" ng-change="ec.editImage(ec.file)"/>
+                                </div>
+                            </div>
+                            <span class="pipe"> | </span>
+                            <span class="delete_image"><a ng-click="ec.deletePhoto()">Delete Image</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="smaller-options top-margin">
+                    <div class="heading">
+                        County
+                    </div>
+                    <select ng-model="ec.post.county" ng-options="x.name for x in ec.counties">
+                        <option value="" disabled selected>County</option>
+                    </select>
+                </div>
+                <div class="one-hundred top-margin ">
+                    <div class="heading">Categories</div>
+                    <md-chips ng-model="ec.categoryList" md-autocomplete-snap md-require-match>
+                        <md-autocomplete
+                                md-autofocus="true"
+                                md-no-cache="true"
+                                md-items="category in ec.cats"
+                                placeholder="Pick something...">
+                            <md-item-template>{{category}}</md-item-template>
+                        </md-autocomplete>
+                        <md-chip-template><span><em>{{$chip}}</em></span></md-chip-template>
+                    </md-chips>
+                </div>
+            </div>
+        </div>
+</div>
+</form>
+</div>
+<script>
+    (function ($) {
+        $('input[type="file"]').bind('change', function () {
+            $("#img_text").html($('input[type="file"]').val());
+        });
+    })(jQuery)
+</script>

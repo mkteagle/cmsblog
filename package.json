@@ -1,0 +1,50 @@
+{
+  "name": "doing-utah-daily",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mkteagle/doing-utah-daily.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mkteagle/doing-utah-daily/issues"
+  },
+  "homepage": "https://github.com/mkteagle/doing-utah-daily#readme",
+  "dependencies": {
+    "angular-animate": "^1.5.9",
+    "angular-aria": "^1.5.9",
+    "angular-filter": "^0.5.14",
+    "angular-material": "^1.1.1",
+    "angular-material-data-table": "^0.10.9",
+    "angular-moment": "^1.0.0",
+    "angular-multiple-select": "^1.1.2",
+    "angular-trix": "^1.0.2",
+    "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
+    "browser-sync": "^2.14.0",
+    "eslint-plugin-lodash": "1.9.4",
+    "express": "^4.14.0",
+    "firebase": "^3.5.3",
+    "firebase-admin": "^4.0.1",
+    "forever": "^0.15.2",
+    "fs": "0.0.2",
+    "jwt-simple": "^0.5.0",
+    "lodash": "^4.13.1",
+    "mailchimp-v3": "^1.0.1",
+    "moment": "^2.17.0",
+    "morgan": "^1.7.0",
+    "ng-file-upload": "^12.2.13",
+    "ngstorage": "^0.3.11",
+    "ngtoast": "^2.0.1",
+    "nodemailer": "^2.5.0",
+    "underscore": "^1.8.3",
+    "wysiwyg-editor-node-sdk": "^2.3.4-rc.1"
+  },
+  "devDependencies": {}
+}

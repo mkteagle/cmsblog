@@ -1,0 +1,29 @@
+{
+  "categories" : [
+    {
+      "id": 1,
+      "name": "Date Night",
+      "param": "date-night"
+    },
+    {
+      "id": 2,
+      "name": "Fun For the Whole Family",
+      "param": "family-fun"
+    },
+    {
+      "id": 3,
+      "name": "Christmas",
+      "param": "christmas"
+    },
+    {
+      "id": 4,
+      "name": "Halloween",
+      "param": "halloween"
+    },
+    {
+      "id": 5,
+      "name": "Easter",
+      "param": "easter"
+    }
+  ]
+}

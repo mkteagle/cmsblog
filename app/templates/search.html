@@ -1,0 +1,40 @@
+<div layout="row">
+    <div class="fifty" layout="column"></div>
+    <div class="fifty orderBy" layout="column" ng-if="filtered.length != 0">
+        <span class="order_by_btn" ng-class="{'showNone': search.reversed}" ng-click="search.reversed=true">Order By Created Date &or;</span>
+        <span class="showNone order_by_btn" ng-class="{'showAll' : search.reversed}" ng-click="search.reversed=false">Order By Created Date &and;</span>
+    </div>
+
+</div>
+<div class="white_space">
+    <div ng-if="filtered.length == 0">No search results here!!!</div>
+    <div class="item margin-top" ng-repeat="blog in search.blogs | toArray | filter: search.term| orderBy:created:search.reversed as filtered">
+        <div layout="row">
+            <div layout="column" class="search_content">
+                <div class="featured">
+                    <span class="star-feature" ng-click="blog.featured=true; search.featurePost(blog)" ng-class="{'showNone': blog.featured}"><span class="star margin-right"><i class="fa fa-star-o"></i></span><span>Featured</span></span>
+                    <span class="star-feature" ng-click="blog.featured=false; search.featurePost(blog)" ng-class="{'showAll orange': blog.featured}" ng-hide="!blog.featured"><span class="star margin-right"><i class="fa fa-star"></i></span><span>Featured</span></span>
+                </div>
+                <div class="margin-top">
+                <span ng-repeat="category in blog.category">
+                    <span ng-class-even="'even'" ng-class-odd="'odd'" ng-bind="category.name"></span>
+                </span>
+                </div>
+                <div class="search_title" ng-bind="blog.title"></div>
+                <div class="author">Written By: <span ng-bind="blog.author"></span></div>
+            </div>
+            <div layout="column" class="search_actions">
+                <div layout="row">
+                    <div class="margin-right">Created </div>
+                    <time am-time-ago="blog.created"></time>
+                </div>
+                <div class="action_bar" layout="row">
+                    <div class="viewBtn margin-right">View Post </div>
+                    <div class="margin-right"><a ng-href="/admin/edit/{{blog.param}}">Edit Post</a></div>
+                    <div class="deleteBtn"><i class="fa fa-trash" aria-hidden="true"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

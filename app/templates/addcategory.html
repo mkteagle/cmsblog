@@ -1,0 +1,15 @@
+<md-dialog ng-cloak>
+	<form>
+		<md-dialog-content>
+			<h2>Add Category</h2>
+			<md-input-container>
+				<label>Category Name</label>
+				<input type="text" ng-model="acd.name"/>
+			</md-input-container>
+		</md-dialog-content>
+		<md-dialog-actions layout="row">
+			<md-button ng-click="acd.cancel()">Cancel</md-button>
+			<md-button ng-click="acd.addCategory()">Add Category</md-button>
+		</md-dialog-actions>
+	</form>
+</md-dialog>

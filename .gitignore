@@ -1,0 +1,10 @@
+./idea/
+.idea/libraries/
+idea/
+node_modules/
+junk/
+
+app/config/
+
+*.xml
+*.iml

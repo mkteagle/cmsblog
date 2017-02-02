@@ -1,0 +1,27 @@
+<md-table-container>
+	<table md-table ng-model="bc.selected">
+		<thead md-head md-order="bc.query.order">
+		<tr md-row>
+			<th md-column md-order-by="title"><span>Title</span></th>
+			<th md-column md-order-by="created"><span>Created</span></th>
+			<th md-column md-order-by="lastModified"><span>Last Modified</span></th>
+			<th md-column>Posted?</th>
+			<th md-column>View Post</th>
+			<th md-column>Delete Post</th>
+		</tr>
+		</thead>
+		<tbody md-body>
+		<tr md-row md-select="title" md-select-id="title" md-auto-select ng-repeat="blog in bc.blogs.data| orderBy: bc.query.order | limitTo: bc.query.limit : (bc.query.page -1) * bc.query.limit">
+			<td md-cell><a ng-href="admin/edit/{{blog.param}}">{{blog.title}}</a></td>
+			<td md-cell>{{blog.created | date: 'MM-dd-yyyy h:mma'}}</td>
+			<td md-cell>{{blog.lastModified | date: 'MM-dd-yyyy h:mma'}}</td>
+			<td md-cell>{{blog.posted | postFilter}}</td>
+			<!--<td md-cell><a ng-href="{{blog.featuredImage}}">View Image</a></td>-->
+			<td md-cell><span class="viewBtn"><a ng-href="admin/post/{{blog.param}}">View Post</a></span></td>
+			<td md-cell><div class="deleteBtnSurround"><span class="deleteBtn"><a ng-click="bc.deleteBlog(blog)"><i class="fa fa-trash" aria-hidden="true"></i></a></span></div></td>
+		</tr>
+		</tbody>
+	</table>
+</md-table-container>
+
+<md-table-pagination md-limit="bc.query.limit" md-limit-options="[5, 10, 15]" md-page="bc.query.page" md-total="{{bc.blogs.count}}" md-page-select></md-table-pagination>

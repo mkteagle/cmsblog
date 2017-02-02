@@ -1,0 +1,26 @@
+<div class="dark_background">
+    <div class="wrapped_text" layout="column">
+        <div layout="row">
+            <div class="blog_cms_text">BLOG CMS</div>
+        </div>
+        <div layout="row">
+            <div class="login">
+                <form class="hover" ng-submit="lc.signIn()">
+                    <div class="wrong" ng-show="lc.wrongPassword"></div>
+                    <input type="text" ng-model="lc.email" placeholder="Username"/>
+                    <input type="password" ng-model="lc.password" value="Password" placeholder="Password"/>
+                    <div class="padding">
+                        <button class="letsgo_btn" type="submit">Let's Go</button>
+                    </div>
+                </form>
+                <div class="forgot">
+                    <div class="forgot-para">
+                        <a ng-click="lc.forgotPage()">Forgot Your Password?</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
